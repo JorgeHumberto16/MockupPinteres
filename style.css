@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  body {
+    background-color: #25c374;
+    font-family: sans-serif;
+    font-size: 3rem;
+  }
+  html{
+    scroll-behavior: smooth;
+}
+  .header{
+      justify-content: center;
+      align-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, rgb(1, 137, 255) 0%, rgb(166, 255, 0) 100%);
+    grid-column: 1 / -1;
+  }
+  .animation {
+      color: #ffffff;
+      font: normal 60px Varela Round, sans-serif;
+      height: auto;
+      left: 0;
+      letter-spacing: 5px;
+      text-align: center;
+      text-transform: uppercase;
+      width: 100%;
+      animation: move linear 2000ms infinite;
+      z-index: 2
+  }
+    /*Animación para rotar las sombras*/
+    @keyframes move {
+      0% {
+          text-shadow:
+          4px -4px 0 #da0641,
+          3px -3px 0 #da0641,
+          2px -2px 0 #da0641,
+          1px -1px 0 #da0641,
+          -4px 4px 0 #13f1fc,
+          -3px 3px 0 #13f1fc,
+          -2px 2px 0 #13f1fc,
+          -1px 1px 0 #13f1fc;
+      }
+      25% {
+        text-shadow:
+          -4px -4px 0 #13f1fc,
+          -3px -3px 0 #13f1fc,
+          -2px -2px 0 #13f1fc,
+          -1px -1px 0 #13f1fc,
+          4px 4px 0 #da0641,
+          3px 3px 0 #da0641,
+          2px 2px 0 #da0641,
+          1px 1px 0 #da0641;
+      }
+      50% {
+        text-shadow:
+          -4px 4px 0 #da0641,
+          -3px 3px 0 #da0641,
+          -2px 2px 0 #da0641,
+          -1px 1px 0 #da0641,
+          4px -4px 0 #13f1fc,
+          3px -3px 0 #13f1fc,
+          2px -2px 0 #13f1fc,
+          1px -1px 0 #13f1fc;
+      }
+      75% {
+        text-shadow:
+          4px 4px 0 #13f1fc,
+          3px 3px 0 #13f1fc,
+          2px 2px 0 #13f1fc,
+          1px 1px 0 #13f1fc,
+          -4px -4px 0 #da0641,
+          -3px -3px 0 #da0641,
+          -2px -2px 0 #da0641,
+          -1px -1px 0 #da0641;
+      }
+      100% {
+        text-shadow:
+          4px -4px 0 #da0641,
+          3px -3px 0 #da0641,
+          2px -2px 0 #da0641,
+          1px -1px 0 #da0641,
+          -4px 4px 0 #13f1fc,
+          -3px 3px 0 #13f1fc,
+          -2px 2px 0 #13f1fc,
+          -1px 1px 0 #13f1fc;
+      }
+    }
+    
+  .grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+  
+    background-color: #44ff00;
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out;
+  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+  .grid-item::before{
+      content: "Gracias por venir <3";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgb(131, 238, 154);
+      transform: scale(0);
+      transition: transform .4s;
+      color: #003709;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+  }
+  .grid-item:hover::before{
+    transform: scale(1) rotate(360deg);
+  }
+  
+  .grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+    gap: 20px;
+    padding: 20px;
+    grid-auto-flow: dense;
+  }
+  
+  @media (min-width: 600px) {
+    .wide {
+      grid-column: span 2;
+    }
+  
+    .tall {
+      grid-row: span 2;
+    }
+
+    .animation{
+
+    }
+  }
